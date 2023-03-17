@@ -1,0 +1,36 @@
+<div *ngIf="game" class="row">
+    <div class="col s12 m8 offset-m2">
+    <h2 class="header center">{{ game.name }}</h2>
+    <div class="card horizontal hoverable">
+      <div class="card-image">
+        <img [src]="game.picture">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <table class="bordered striped">
+            <tbody>
+              <tr>
+                <td>Nom</td>
+                <td><strong>{{ game.name }}</strong></td>
+              </tr>
+              <tr>
+                <td>Genre</td>
+                <td>
+                  <span *ngFor="let genre of game.genre" class="{{ genre | gameGenreColor }}">{{ genre }}</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Date de création</td>
+                <td><em>{{ game.created }}</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-action">
+          <a (click)="goBack()">Retour</a>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    <h4 *ngIf='!game' class="center">Aucun jeux à afficher</h4>

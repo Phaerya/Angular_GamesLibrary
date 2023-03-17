@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let game of gameList" class="col m4 s6">
+            <div (click)=goToGame(game) class="card horizontal" gameBorderCard="">
+                <div class="card-image">
+                    <img [src]="game.picture" />
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>{{ game.name }}</p>
+                        <p><small>{{ game.created }}</small></p>
+                        <span *ngFor="let genre of game.genre" class="{{  genre | gameGenreColor  }}">
+                            {{ genre }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
